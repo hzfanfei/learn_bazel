@@ -6,6 +6,13 @@ load(
     "xcodeproj",
 )
 
+apple_framework(
+    name = "SnapKit",
+    srcs = [
+         "SnapKit/*.swift",
+    ],
+)
+
 objc_library(
     name = "UrlGetClasses",
     srcs = [
@@ -14,6 +21,7 @@ objc_library(
         "UrlGet/main.m",
     ],
     hdrs = glob(["UrlGet/*.h"]),
+	deps = [":SnapKit"],
 )
 
 ios_application(
